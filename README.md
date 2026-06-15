@@ -87,6 +87,33 @@ This script leverages the standard `neuraloperator` library, compares inference 
 
 ---
 
+## 📊 Results & Visualizations
+
+### 🔍 1. Baseline Phase Limitation Check
+By running the Phase 1 validation script, you can visualize the phase tracking errors of the baseline models. Standard time-domain loss functions often result in poor phase alignment, especially in high-frequency ranges.
+
+<p align="center">
+  <img src="baseline_phase_check.png" alt="TCN Baseline Phase Check" width="850">
+</p>
+
+*   **Waveform Overlay**: Shows the timing/phase deviation between target and predicted signals.
+*   **Phase Deviation vs. Frequency**: Illustrates how phase tracking error diverges at higher frequencies.
+
+### 🏆 2. TCN vs FNO Benchmarking (Advanced Spectral Loss)
+Comparing FNO and TCN models trained with `AdvancedSpectralLoss` reveals superior performance across waveform, harmonics, transfer function (hysteresis), and phase tracking.
+
+<p align="center">
+  <img src="paper_style_comparison.png" alt="TCN vs FNO Benchmark Comparison" width="850">
+</p>
+
+The multi-panel visualization provides a comprehensive evaluation:
+1.  **Waveform Overlay (Row 1)**: Zoomed-in sample-level target vs. prediction comparison.
+2.  **Log-Spectrogram (Row 2)**: Evaluates the accuracy of harmonic tracking across the log-frequency spectrum.
+3.  **Transfer Function & Hysteresis (Row 3)**: Illustrates how well the models capture non-linear distortion curves and memory-dependent hysteresis loops.
+4.  **Phase Deviation (Row 4)**: Shows the phase error distribution over the frequency range.
+
+---
+
 ## 🔬 Loss Function Details
 
 **AdvancedSpectralLoss** combines:
