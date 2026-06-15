@@ -1,0 +1,24 @@
+# Datasets and raw audio data
+data/
+*.zip
+*.wav
+
+# Checkpoints and logs
+lightning_logs/
+*.ckpt
+
+# Python caching and environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# System files
+.DS_Store
+Thumbs.db
+run.log
+
