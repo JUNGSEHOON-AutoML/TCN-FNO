@@ -106,11 +106,12 @@ Comparing FNO and TCN models trained with `AdvancedSpectralLoss` reveals superio
   <img src="paper_style_comparison.png" alt="TCN vs FNO Benchmark Comparison" width="850">
 </p>
 
-The multi-panel visualization provides a comprehensive evaluation:
-1.  **Waveform Overlay (Row 1)**: Zoomed-in sample-level target vs. prediction comparison.
-2.  **Log-Spectrogram (Row 2)**: Evaluates the accuracy of harmonic tracking across the log-frequency spectrum.
-3.  **Transfer Function & Hysteresis (Row 3)**: Illustrates how well the models capture non-linear distortion curves and memory-dependent hysteresis loops.
-4.  **Phase Deviation (Row 4)**: Shows the phase error distribution over the frequency range.
+제안 모델은 다음과 같은 핵심 성능 개선을 증명합니다:
+
+1.  **Waveform Overlay (Row 1)**: 제안 모델(FNO)은 기존 TCN 대비 NRMSE(Normalized Root Mean Squared Error) 수치를 획기적으로 낮췄으며, 과도한 비선형 입력에서도 정답 파형(Target)의 피크(Peak)와 전체 골격을 완벽에 가깝게 추종합니다.
+2.  **Log-Spectrogram (Row 2)**: 기존 TCN에서 에너지 뭉개짐(Smearing) 현상이 두드러지던 고주파수 대역의 고조파(Harmonics) 성분이, Advanced Loss와 FNO의 퓨리어 스펙트럼 처리 구조를 통해 선명하게 복원되었습니다.
+3.  **Transfer Function & Hysteresis (Row 3)**: 입출력 산점도(Transfer Function) 상에서 모델 예측점(빨간색)이 정답(회색)의 복잡한 비선형 히스테리시스 루프(Hysteresis loop)를 빈틈없이 덮어 씌우는 것을 볼 수 있습니다. 이는 아날로그 장비 고유의 메모리성 왜곡 및 동적 압축 특성을 극도로 정밀하게 모사하고 있음을 뜻합니다.
+4.  **Phase Deviation (Row 4)**: 전 주파수 대역에 걸쳐 위상 편차(Phase Deviation) 측정점들이 0 (rad) 선상에 매우 밀집해 있습니다. 이는 기존 1D CNN 계열 모델들의 치명적인 한계점이었던 고주파수 대역에서의 위상 뒤틀림(Phase Warping) 현상을 완벽히 극복했음을 실증적으로 증명합니다.
 
 ---
 
